@@ -26,7 +26,7 @@ sd_listings_url = sd_listings_url[['listing_url']]
 sd_listings_url = sd_listings_url.reset_index(drop = 'index')
 
 # save as csv
-path = "/Users/aryakbodkhe/Desktop/airbnb_recommendations-main/notebooks/"
+path = "data/"
 
 sd_listings_url.to_csv(path + 'url_listings')
 
