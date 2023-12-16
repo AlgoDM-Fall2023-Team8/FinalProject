@@ -163,7 +163,7 @@ sd_simplified = sd_trans[features_to_keep]
 #sd_simplified.head()
 
 # save as csv
-path = "/Users/aryakbodkhe/Desktop/airbnb_recommendations-main/notebooks/"
+path = "/notebooks/"
 
 sd_simplified.to_csv(path + 'sd_simplified')
 
@@ -188,7 +188,7 @@ ct = ColumnTransformer(transformers = [("nominalpipe", nominal_pipeline, ['neigh
                                        ("numericpipe", numeric_pipeline, sd_simplified.select_dtypes(['int', 'float']).columns)])
 
 # save the NEW column transformer
-dump(ct, open('/Users/aryakbodkhe/Desktop/airbnb_recommendations-main/notebooks/simple_column_transformer.pkl', 'wb'))
+dump(ct, open('/notebooks/simple_column_transformer.pkl', 'wb'))
 
 sd_simplified_pp = pd.DataFrame(ct.fit_transform(sd_simplified))
 
