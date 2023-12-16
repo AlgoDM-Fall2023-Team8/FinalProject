@@ -23,7 +23,7 @@ pd.set_option('display.max_columns', None)
 
 np.random_state = 42
 
-sd_listings = pd.read_csv('../notebooks/data/sd_listings', index_col= 0)
+sd_listings = pd.read_csv('data/sd_listings', index_col= 0)
 # sd_listings.head(3)
 
 modeling_cols = ['id', 'listing_url', 'latitude', 'longitude', 'neighbourhood_cleansed',
@@ -178,7 +178,7 @@ ct = ColumnTransformer(transformers = [("nominalpipe", nominal_pipeline, ['neigh
                                        ("ordinalpipe", ordinal_pipeline, ['host_response_time', 
                                                                           'cancellation_policy']),
                                        ("numericpipe", numeric_pipeline, sd_trans.select_dtypes(['int', 'float']).columns)])
-dump(ct, open('/Users/aryakbodkhe/Desktop/airbnb_recommendations-main/notebooks/column_transformer.pkl', 'wb'))
+dump(ct, open('/notebooks/column_transformer.pkl', 'wb'))
 # reorder the df with nominal first, ordinal second, and remaining numeric last
 
 sd_trans = sd_trans[ # nominal below this line
